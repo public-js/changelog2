@@ -1,4 +1,16 @@
 {
   "version": 2,
-  "projects": {}
+  "projects": {
+    "cc-changelog-core": "packages/cc-changelog-core",
+    "cc-commits-parser": "packages/cc-commits-parser",
+    "cc-common-types": "packages/cc-common-types",
+    "cc-git-utils": "packages/cc-git-utils",
+    "cc-preset-angular": "packages/cc-preset-angular",
+    "cc-preset-atom": "packages/cc-preset-atom",
+    "cc-preset-ember": "packages/cc-preset-ember",
+    "cc-preset-eslint": "packages/cc-preset-eslint",
+    "cc-preset-express": "packages/cc-preset-express",
+    "cc-preset-jshint": "packages/cc-preset-jshint",
+    "cc-release": "packages/cc-release"
+  }
 }

@@ -1,0 +1,42 @@
+{
+  "root": "packages/cc-git-utils",
+  "sourceRoot": "packages/cc-git-utils/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/cc-git-utils/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/cc-git-utils"],
+      "options": {
+        "jestConfig": "packages/cc-git-utils/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/cc-git-utils",
+        "tsConfig": "packages/cc-git-utils/tsconfig.lib.json",
+        "packageJson": "packages/cc-git-utils/package.json",
+        "main": "packages/cc-git-utils/src/index.ts",
+        "assets": ["packages/cc-git-utils/README.md", { "input": "./", "glob": "LICENSE", "output": "./" }]
+      }
+    },
+    "publish": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "npm publish --tag=latest --access public",
+        "cwd": "dist/packages/cc-git-utils"
+      }
+    }
+  },
+  "tags": []
+}

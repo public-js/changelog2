@@ -1,9 +1,7 @@
 # @public-js/changelog2
 
 [![Build](https://github.com/public-js/changelog2/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/public-js/changelog2/actions/workflows/build.yml)
-[![Version](https://img.shields.io/npm/v/@public-js/changelog2?style=flat)](https://www.npmjs.com/package/@public-js/changelog2)
-[![Downloads](https://img.shields.io/npm/dw/@public-js/changelog2?style=flat)](https://www.npmjs.com/package/@public-js/changelog2)
-[![Size](https://packagephobia.com/badge?p=@public-js/changelog2)](https://packagephobia.com/result?p=@public-js/changelog2)
+[![Version](https://img.shields.io/npm/v/@public-js/cc-changelog-core?style=flat)](https://www.npmjs.com/package/@public-js/cc-changelog-core)
 
 [![Codacy](https://app.codacy.com/project/badge/Grade/42837e08bcb142c3b2465b7e37f4a0a0)](https://www.codacy.com/gh/public-js/changelog2/dashboard)
 [![LGTM](https://img.shields.io/lgtm/grade/javascript/g/public-js/changelog2?logo=lgtm)](https://lgtm.com/projects/g/public-js/changelog2/context:javascript)
@@ -28,3 +26,6 @@ todo: add project headline
 
 MIT, [full license text](LICENSE).
 Read more about it on [TLDRLegal](https://www.tldrlegal.com/l/mit).
+
+As this project is based on [Conventional Changelog](https://github.com/conventional-changelog/conventional-changelog),
+the original code is covered by the ISC license and/or MIT license.

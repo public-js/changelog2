@@ -1,0 +1,50 @@
+{
+  "root": "packages/cc-preset-eslint",
+  "sourceRoot": "packages/cc-preset-eslint/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/cc-preset-eslint/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/cc-preset-eslint"],
+      "options": {
+        "jestConfig": "packages/cc-preset-eslint/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/cc-preset-eslint",
+        "tsConfig": "packages/cc-preset-eslint/tsconfig.lib.json",
+        "packageJson": "packages/cc-preset-eslint/package.json",
+        "main": "packages/cc-preset-eslint/src/index.ts",
+        "assets": [
+          "packages/cc-preset-eslint/README.md",
+          { "input": "./", "glob": "LICENSE", "output": "./" },
+          {
+            "input": "./packages/cc-preset-eslint/src/lib",
+            "glob": "**/*.hbs",
+            "output": "./src/lib"
+          }
+        ]
+      }
+    },
+    "publish": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "npm publish --tag=latest --access public",
+        "cwd": "dist/packages/cc-preset-eslint"
+      }
+    }
+  },
+  "tags": []
+}

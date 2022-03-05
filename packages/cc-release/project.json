@@ -1,0 +1,42 @@
+{
+  "root": "packages/cc-release",
+  "sourceRoot": "packages/cc-release/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/cc-release/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/cc-release"],
+      "options": {
+        "jestConfig": "packages/cc-release/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/cc-release",
+        "tsConfig": "packages/cc-release/tsconfig.lib.json",
+        "packageJson": "packages/cc-release/package.json",
+        "main": "packages/cc-release/src/index.ts",
+        "assets": ["packages/cc-release/README.md", { "input": "./", "glob": "LICENSE", "output": "./" }]
+      }
+    },
+    "publish": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "npm publish --tag=latest --access public",
+        "cwd": "dist/packages/cc-release"
+      }
+    }
+  },
+  "tags": []
+}

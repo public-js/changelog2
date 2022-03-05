@@ -1,0 +1,21 @@
+{
+  "name": "@public-js/cc-commits-parser",
+  "version": "0.0.0",
+  "description": "Parse raw conventional commits",
+  "dependencies": {
+    "modify-values": "^2.0.0"
+  },
+  "devDependencies": {
+    "@public-js/cc-common-types": "0.0.0"
+  },
+  "license": "MIT",
+  "author": "Public JS <public-js@muffin.blue> (https://github.com/public-js/public-js)",
+  "repository": "https://github.com/public-js/changelog2",
+  "homepage": "https://github.com/public-js/changelog2",
+  "keywords": [],
+  "engines": {
+    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+  },
+  "type": "module",
+  "exports": "./src/index.js"
+}
