@@ -1,0 +1,25 @@
+{
+  "name": "@public-js/cc-git-utils",
+  "version": "0.0.0",
+  "description": "Get raw git commits and semver tags",
+  "dependencies": {
+    "@hutson/parse-repository-url": ">=3.0.0",
+    "dargs": "^8.0.0",
+    "hosted-git-info": "^4.0.0",
+    "semver": ">=5.0.0 <8.0.0",
+    "split2": "^4.0.0"
+  },
+  "devDependencies": {
+    "@public-js/cc-common-types": "0.0.0"
+  },
+  "license": "MIT",
+  "author": "Public JS <public-js@muffin.blue> (https://github.com/public-js/public-js)",
+  "repository": "https://github.com/public-js/cc-git-utils",
+  "homepage": "https://github.com/public-js/cc-git-utils",
+  "keywords": [],
+  "engines": {
+    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+  },
+  "type": "module",
+  "exports": "./src/index.js"
+}

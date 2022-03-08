@@ -1,0 +1,55 @@
+{
+  "root": "packages/cc-changelog-core",
+  "sourceRoot": "packages/cc-changelog-core/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/cc-changelog-core/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/cc-changelog-core"],
+      "options": {
+        "jestConfig": "packages/cc-changelog-core/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/cc-changelog-core",
+        "tsConfig": "packages/cc-changelog-core/tsconfig.lib.json",
+        "packageJson": "packages/cc-changelog-core/package.json",
+        "main": "packages/cc-changelog-core/src/index.ts",
+        "assets": [
+          "packages/cc-changelog-core/README.md",
+          { "input": "./", "glob": "LICENSE", "output": "./" },
+          {
+            "input": "./packages/cc-changelog-core/src/lib",
+            "glob": "**/*.hbs",
+            "output": "./src/lib"
+          },
+          {
+            "input": "./packages/cc-changelog-core/src/lib",
+            "glob": "**/*.json",
+            "output": "./src/lib"
+          }
+        ]
+      }
+    },
+    "publish": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "npm publish --tag=latest --access public",
+        "cwd": "dist/packages/cc-changelog-core"
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,32 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@public-js/cc-changelog-core": ["packages/cc-changelog-core/src/index.ts"],
+      "@public-js/cc-commits-parser": ["packages/cc-commits-parser/src/index.ts"],
+      "@public-js/cc-common-types": ["packages/cc-common-types/src/index.ts"],
+      "@public-js/cc-git-utils": ["packages/cc-git-utils/src/index.ts"],
+      "@public-js/cc-preset-angular": ["packages/cc-preset-angular/src/index.ts"],
+      "@public-js/cc-preset-atom": ["packages/cc-preset-atom/src/index.ts"],
+      "@public-js/cc-preset-ember": ["packages/cc-preset-ember/src/index.ts"],
+      "@public-js/cc-preset-eslint": ["packages/cc-preset-eslint/src/index.ts"],
+      "@public-js/cc-preset-express": ["packages/cc-preset-express/src/index.ts"],
+      "@public-js/cc-preset-jshint": ["packages/cc-preset-jshint/src/index.ts"],
+      "@public-js/cc-release": ["packages/cc-release/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

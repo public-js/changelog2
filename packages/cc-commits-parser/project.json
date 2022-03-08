@@ -1,0 +1,42 @@
+{
+  "root": "packages/cc-commits-parser",
+  "sourceRoot": "packages/cc-commits-parser/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/cc-commits-parser/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/cc-commits-parser"],
+      "options": {
+        "jestConfig": "packages/cc-commits-parser/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/cc-commits-parser",
+        "tsConfig": "packages/cc-commits-parser/tsconfig.lib.json",
+        "packageJson": "packages/cc-commits-parser/package.json",
+        "main": "packages/cc-commits-parser/src/index.ts",
+        "assets": ["packages/cc-commits-parser/README.md", { "input": "./", "glob": "LICENSE", "output": "./" }]
+      }
+    },
+    "publish": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "npm publish --tag=latest --access public",
+        "cwd": "dist/packages/cc-commits-parser"
+      }
+    }
+  },
+  "tags": []
+}

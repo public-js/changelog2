@@ -1,0 +1,50 @@
+{
+  "root": "packages/cc-preset-angular",
+  "sourceRoot": "packages/cc-preset-angular/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/cc-preset-angular/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/cc-preset-angular"],
+      "options": {
+        "jestConfig": "packages/cc-preset-angular/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/cc-preset-angular",
+        "tsConfig": "packages/cc-preset-angular/tsconfig.lib.json",
+        "packageJson": "packages/cc-preset-angular/package.json",
+        "main": "packages/cc-preset-angular/src/index.ts",
+        "assets": [
+          "packages/cc-preset-angular/README.md",
+          { "input": "./", "glob": "LICENSE", "output": "./" },
+          {
+            "input": "./packages/cc-preset-angular/src/lib",
+            "glob": "**/*.hbs",
+            "output": "./src/lib"
+          }
+        ]
+      }
+    },
+    "publish": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "npm publish --tag=latest --access public",
+        "cwd": "dist/packages/cc-preset-angular"
+      }
+    }
+  },
+  "tags": []
+}

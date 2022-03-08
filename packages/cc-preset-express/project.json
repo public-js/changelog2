@@ -1,0 +1,50 @@
+{
+  "root": "packages/cc-preset-express",
+  "sourceRoot": "packages/cc-preset-express/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/cc-preset-express/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/cc-preset-express"],
+      "options": {
+        "jestConfig": "packages/cc-preset-express/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/cc-preset-express",
+        "tsConfig": "packages/cc-preset-express/tsconfig.lib.json",
+        "packageJson": "packages/cc-preset-express/package.json",
+        "main": "packages/cc-preset-express/src/index.ts",
+        "assets": [
+          "packages/cc-preset-express/README.md",
+          { "input": "./", "glob": "LICENSE", "output": "./" },
+          {
+            "input": "./packages/cc-preset-express/src/lib",
+            "glob": "**/*.hbs",
+            "output": "./src/lib"
+          }
+        ]
+      }
+    },
+    "publish": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "npm publish --tag=latest --access public",
+        "cwd": "dist/packages/cc-preset-express"
+      }
+    }
+  },
+  "tags": []
+}

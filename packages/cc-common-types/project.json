@@ -1,0 +1,42 @@
+{
+  "root": "packages/cc-common-types",
+  "sourceRoot": "packages/cc-common-types/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/cc-common-types/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/cc-common-types"],
+      "options": {
+        "jestConfig": "packages/cc-common-types/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/cc-common-types",
+        "tsConfig": "packages/cc-common-types/tsconfig.lib.json",
+        "packageJson": "packages/cc-common-types/package.json",
+        "main": "packages/cc-common-types/src/index.ts",
+        "assets": ["packages/cc-common-types/README.md", { "input": "./", "glob": "LICENSE", "output": "./" }]
+      }
+    },
+    "publish": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "npm publish --tag=latest --access public",
+        "cwd": "dist/packages/cc-common-types"
+      }
+    }
+  },
+  "tags": []
+}

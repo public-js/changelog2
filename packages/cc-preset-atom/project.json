@@ -1,0 +1,50 @@
+{
+  "root": "packages/cc-preset-atom",
+  "sourceRoot": "packages/cc-preset-atom/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/cc-preset-atom/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/cc-preset-atom"],
+      "options": {
+        "jestConfig": "packages/cc-preset-atom/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/cc-preset-atom",
+        "tsConfig": "packages/cc-preset-atom/tsconfig.lib.json",
+        "packageJson": "packages/cc-preset-atom/package.json",
+        "main": "packages/cc-preset-atom/src/index.ts",
+        "assets": [
+          "packages/cc-preset-atom/README.md",
+          { "input": "./", "glob": "LICENSE", "output": "./" },
+          {
+            "input": "./packages/cc-preset-atom/src/lib",
+            "glob": "**/*.hbs",
+            "output": "./src/lib"
+          }
+        ]
+      }
+    },
+    "publish": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "npm publish --tag=latest --access public",
+        "cwd": "dist/packages/cc-preset-atom"
+      }
+    }
+  },
+  "tags": []
+}
