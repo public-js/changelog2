@@ -8,8 +8,8 @@
     "man:space:lint": "npm run ci:root:lint -- --fix && npm run ci:all:lint -- --fix",
     "man:staged:lint": "lint-staged --concurrent false",
     "___ CI Lint ___": "",
-    "ci:space:format": "prettier '**/*.{js,ts,scss,html,md,json,yml,*\\w\\wrc}'",
-    "ci:root:lint": "eslint '*.{js,ts}' --no-ignore",
+    "ci:space:format": "prettier \"**/*.{js,ts,scss,html,md,json,yml,yaml,*\\w\\wrc}\"",
+    "ci:root:lint": "eslint \"*.{js,ts}\" --no-ignore",
     "ci:all:lint": "nx run-many --target lint --all --parallel",
     "___ CI Checks ___": "",
     "ci:affect:test": "nx affected --target test --parallel",
@@ -159,7 +159,7 @@
   "repository": "https://github.com/public-js/changelog2",
   "homepage": "https://github.com/public-js/changelog2",
   "lint-staged": {
-    "*.{js,ts,css,scss,html,md,json}": "prettier --write",
+    "*.{js,ts,scss,html,md,json,yml,yaml,*\\w\\wrc}": "prettier --write",
     "*.{js,ts}": "eslint --fix"
   },
   "commitlint": {
